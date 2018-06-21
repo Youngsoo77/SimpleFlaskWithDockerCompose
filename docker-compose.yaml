@@ -1,0 +1,22 @@
+version: "3"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8083:5000"
+    environment:
+      DBADDR: "192.168.10.129"
+    depends_on:
+      - db
+    command: ["./wait-for-db.sh", "db", "python3", "app.py"]
+    restart: on-failure
+
+  db:
+    image: mariadb
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root1234

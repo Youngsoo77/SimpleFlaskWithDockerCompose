@@ -19,7 +19,7 @@ db = SQLAlchemy(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html', name=os.environ['YOUNGSOO'])    
+    return render_template('index.html', name='YOUNGSOO')    
 
 
 @app.route('/result', methods=['POST'])
