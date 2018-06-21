@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>FlaskApp</title>
+<script>
+    function test_click(){
+        alert("Hello World"+ "{{ name }}" );        
+        document.getElementById('testform').submit();
+    }
+</script>
+</head>
+<body>
+<h1>Hello World!</h1>
+<form id="testform" method="post" action="{{ url_for('result') }}">
+    <input placeholder="data를 입력하세요." name="form_data"/>
+    <input type="button" id="button" value="Submit" onclick="test_click();"/>
+</form>
+</body>
+</html>
